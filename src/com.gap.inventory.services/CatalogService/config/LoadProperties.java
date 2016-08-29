@@ -1,4 +1,4 @@
-package com.gap.inventory.util;
+package com.gap.inventory.services.CatalogService.config;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

@@ -3,6 +3,7 @@ package com.gap.inventory.implementation;
 import java.io.IOException;
 import java.util.*;
 
+import com.gap.inventory.services.CatalogService.config.LoadProperties;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -12,7 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gap.inventory.domain.CatalogCC;
 import com.gap.inventory.intrface.CatalogService;
-import com.gap.inventory.util.LoadProperties;
+
 
 public class CatalogServiceImpl implements CatalogService {
 	
