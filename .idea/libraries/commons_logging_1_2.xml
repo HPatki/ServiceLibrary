@@ -8,6 +8,7 @@
       <root url="jar://C:/I/Installed/spring-framework-4.3.2.RELEASE/libs/spring-beans-4.3.2.RELEASE.jar!/" />
       <root url="jar://C:/I/Installed/spring-framework-4.3.2.RELEASE/libs/spring-core-4.3.2.RELEASE.jar!/" />
       <root url="jar://C:/I/Installed/spring-framework-4.3.2.RELEASE/libs/spring-web-4.3.2.RELEASE.jar!/" />
+      <root url="jar://C:/I/Installed/spring-framework-4.3.2.RELEASE/libs/spring-test-4.3.2.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
