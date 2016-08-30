@@ -36,5 +36,8 @@ public class Main implements Serializable
         vals.put("code","161054006");
         RestService inst = new RestService("https://allocation-catalog-service-dev.cf.rc.gid.gap.com");
         List<String> ret = inst.getCollectionUsingPostMethod("/allocation/in-season/allocated-customer-choices/search",vals,String.class);
+
+        RestService df = new RestService("https://demand-forecast-service-dev.cf.rc.gid.gap.com");
+      //  inst.getObjectUsingGetMethod("/analytics/demand-forecast/customer-choice-by-weeks/{cc-id}?brandId={brd-id}&marketId={mkt-id}&channelId={chnl-id}");
     }
 }

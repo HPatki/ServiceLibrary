@@ -64,7 +64,7 @@ public class ApplicationContextUtil
     }
 
 
-    public String getProperty(final String propertyName) {
+    public static String getProperty(final String propertyName) {
         String value = configProperties.getProperty(propertyName);
         if (value != null) {
             value = value.trim();

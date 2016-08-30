@@ -2,14 +2,24 @@ package com.gap.inventory.services.common;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.jndi.toolkit.url.Uri;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
+import org.springframework.http.converter.ResourceHttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter;
+import org.springframework.http.converter.xml.SourceHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Hpatki on 8/29/2016.
@@ -27,7 +37,7 @@ public class RestService
 
     public <T> T getObjectUsingPostMethod (String resource, Object objects, Class<T> type)
     {
-        String response = invokeHTTP(resource,objects);
+        String response = invokePOST(resource, objects);
         ObjectMapper obj = new ObjectMapper();
         Object objRef = null;
         try
@@ -44,7 +54,7 @@ public class RestService
 
     public <T> List<T> getCollectionUsingPostMethod (String resource, Object objects, Class<T> type)
     {
-        String response = invokeHTTP(resource, objects);
+        String response = invokePOST(resource, objects);
         ObjectMapper obj = new ObjectMapper();
         Object objRef = null;
         try
@@ -58,9 +68,17 @@ public class RestService
         return (List<T>)objRef;
     }
 
-    public <T> T getObjectUsingGetMethod (String resource, Class<T> type)
+    public <T> T getObjectUsingGetMethod (String resource, Class<T> type, Map<String,?> params)
     {
-         return null;
+        List<HttpMessageConverter<?>> converters = new ArrayList<>();
+        converters.add(new MappingJackson2HttpMessageConverter());
+        rstTmpl.setMessageConverters(converters);
+
+        T obj1 = rstTmpl.getForObject(baseURL+resource, type, params);
+
+        resetConverters();
+
+        return obj1;
     }
 
     public <T> T getCollectionUsingGetMethod (String resource, Class<T> type)
@@ -68,7 +86,22 @@ public class RestService
          return null;
     }
 
-    private String invokeHTTP (String resource, Object objects)
+    private void resetConverters ()
+    {
+        List<HttpMessageConverter<?>> converters = new ArrayList<>();
+
+        //necessitated
+        converters.remove(0);
+        converters.add(new ByteArrayHttpMessageConverter());
+        converters.add(new StringHttpMessageConverter());
+        converters.add(new ResourceHttpMessageConverter());
+        converters.add(new SourceHttpMessageConverter());
+        converters.add(new AllEncompassingFormHttpMessageConverter());
+
+        rstTmpl.setMessageConverters(converters);
+    }
+
+    private String invokePOST (String resource, Object objects)
     {
         String resp = null;
 
