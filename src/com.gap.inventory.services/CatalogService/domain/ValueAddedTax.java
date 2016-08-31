@@ -1,4 +1,4 @@
-package com.gap.inventory.domain;
+package com.gap.inventory.services.CatalogService.domain;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

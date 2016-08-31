@@ -10,7 +10,7 @@ import com.gap.inventory.services.common.ApplicationContextUtil;
 public final class DemandForecastFactory
 {
     private static boolean appContextCreated = false;
-    private static Object lock;
+    private static Object lock = new Object();
 
     public static IDemandForecast createService ()
     {

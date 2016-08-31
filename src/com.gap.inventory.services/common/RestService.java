@@ -91,7 +91,6 @@ public class RestService
         List<HttpMessageConverter<?>> converters = new ArrayList<>();
 
         //necessitated
-        converters.remove(0);
         converters.add(new ByteArrayHttpMessageConverter());
         converters.add(new StringHttpMessageConverter());
         converters.add(new ResourceHttpMessageConverter());

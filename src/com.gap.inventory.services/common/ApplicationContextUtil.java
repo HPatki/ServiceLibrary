@@ -74,7 +74,7 @@ public class ApplicationContextUtil
 
     public static void initializeApplicationContext() throws IOException
     {
-        String configFile = "config/services.properties";
+        String configFile = "properties/configuration.properties";
         initializeApplicationContext(configFile);
     }
 
@@ -82,6 +82,8 @@ public class ApplicationContextUtil
     {
         if (configProperties == null)
         {
+            configProperties = new Properties();
+
             for (final String configFile : configFiles)
             {
                 final InputStream inputStream=new FileInputStream(configFile);

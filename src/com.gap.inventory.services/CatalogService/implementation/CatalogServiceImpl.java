@@ -1,4 +1,4 @@
-package com.gap.inventory.implementation;
+package com.gap.inventory.services.CatalogService.implementation;
 
 import java.io.IOException;
 import java.util.*;
@@ -11,8 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gap.inventory.domain.CatalogCC;
-import com.gap.inventory.intrface.CatalogService;
+import com.gap.inventory.services.CatalogService.domain.CatalogCC;
+import com.gap.inventory.services.CatalogService.intrface.CatalogService;
 
 
 public class CatalogServiceImpl implements CatalogService {

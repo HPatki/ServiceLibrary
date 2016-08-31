@@ -1,4 +1,4 @@
-package com.gap.inventory.domain;
+package com.gap.inventory.services.CatalogService.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SizeProfile {
