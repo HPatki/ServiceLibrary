@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gap.inventory.services.CatalogService.config.LoadProperties;
 import com.gap.inventory.services.CatalogService.domain.CatalogCC;
 import com.gap.inventory.services.CatalogService.intrface.ICatalogService;
 import com.gap.inventory.services.common.ApplicationContextUtil;
