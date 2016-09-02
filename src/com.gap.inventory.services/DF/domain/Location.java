@@ -6,16 +6,12 @@ package com.gap.inventory.services.DF.domain;
 public class Location
 {
     private String id;
-    private double baseForecast;
+    private Forecast baseForecast;
+    private Forecast promotedForecast;
 
     public String getid ()
     {
         return id;
-    }
-
-    public double getbaseForecast ()
-    {
-        return baseForecast;
     }
 
     public void setid (String id)
@@ -23,8 +19,23 @@ public class Location
         this.id = id;
     }
 
-    public void setbaseForecast (double baseForecast)
+    public Forecast getbaseForecast ()
+    {
+        return baseForecast;
+    }
+
+    public void setbaseForecast (Forecast baseForecast)
     {
         this.baseForecast = baseForecast;
+    }
+
+    public Forecast getpromotedForecast ()
+    {
+        return promotedForecast;
+    }
+
+    public void setpromotedForecast (Forecast promotedForecast)
+    {
+        this.promotedForecast = promotedForecast;
     }
 }

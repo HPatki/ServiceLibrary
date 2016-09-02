@@ -2,6 +2,7 @@ package com.gap.inventory.services.DF.intrface;
 
 import com.gap.inventory.services.DF.domain.DemandForecast;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,5 +10,6 @@ import java.util.Map;
  */
 public interface IDemandForecast
 {
-    DemandForecast getForecast (String ccNbr, Map<String,?> params);
+    DemandForecast getForecast (Map<String,?> params);
+    List<DemandForecast> getForecastCollection (Map<String,?> params);
 }

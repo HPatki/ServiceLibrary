@@ -7,21 +7,54 @@ import java.util.List;
  */
 public class DemandForecast
 {
-    private String pln_prd_nbr;
+    private String customerChoice;
+    private long brandId;
+    private long marketId;
+    private long channelId;
     private List<ForecastWeek> weeks;
 
-    public String getPln_prd_nbr ()
+    public String getcustomerChoice ()
     {
-        return pln_prd_nbr;
+        return customerChoice;
     }
 
-    public void setPln_prd_nbr (String pln_prd_nbr)
+    public void setcustomerChoice (String pln_prd_nbr)
     {
-        this.pln_prd_nbr = pln_prd_nbr;
+        this.customerChoice = pln_prd_nbr;
     }
 
     public void setweeks (List<ForecastWeek> weeks)
     {
         this.weeks = weeks;
+    }
+
+    public void setbrandId (long brndId)
+    {
+       brandId = brndId;
+    }
+
+    public void setmarketId (long mktId)
+    {
+        marketId = mktId;
+    }
+
+    public void setchannelId (long chnlId)
+    {
+        channelId = chnlId;
+    }
+
+    public long getbrandId ()
+    {
+        return brandId;
+    }
+
+    public long getmarketId ()
+    {
+        return marketId;
+    }
+
+    public long getchannelId ()
+    {
+        return channelId;
     }
 }

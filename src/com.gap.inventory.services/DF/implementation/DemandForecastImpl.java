@@ -5,6 +5,7 @@ import com.gap.inventory.services.DF.intrface.IDemandForecast;
 import com.gap.inventory.services.common.ApplicationContextUtil;
 import com.gap.inventory.services.common.RestService;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,9 +22,16 @@ class DemandForecastImpl implements IDemandForecast
     }
 
     @Override
-    public DemandForecast getForecast (String ccNbr, Map<String,?> params)
+    public DemandForecast getForecast (Map<String,?> params)
     {
         String rSource = ApplicationContextUtil.getProperty ("ccforecast");
         return endPoint.getObjectUsingGetMethod(rSource,DemandForecast.class, params);
+    }
+
+    @Override
+    public List<DemandForecast> getForecastCollection (Map<String,?> params)
+    {
+        String rSource = ApplicationContextUtil.getProperty ("ccforecast1");
+        return endPoint.getCollectionUsingGetMethod(rSource,DemandForecast.class,params);
     }
 }
