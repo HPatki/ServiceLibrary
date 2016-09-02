@@ -47,7 +47,9 @@ public class Main implements Serializable
         List<String> ret = inst.getCollectionUsingPostMethod("/allocation/in-season/allocated-customer-choices/search",vals,String.class);
         */
         IDemandForecast dfinst = DemandForecastFactory.createService();
-        DemandForecast df = dfinst.getForecast("12345",vals);
+        DemandForecast df = dfinst.getForecast(vals);
+        List<DemandForecast> dfCollection = dfinst.getForecastCollection(vals);
+        DemandForecast fcst = dfCollection.get(0);
 
     }
 }

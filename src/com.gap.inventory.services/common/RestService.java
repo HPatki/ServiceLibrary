@@ -55,17 +55,7 @@ public class RestService
     public <T> List<T> getCollectionUsingPostMethod (String resource, Object objects, Class<T> type)
     {
         String response = invokePOST(resource, objects);
-        ObjectMapper obj = new ObjectMapper();
-        Object objRef = null;
-        try
-        {
-            objRef = obj.readValue(response, new TypeReference<List<T>>() {});
-        }
-        catch(Exception err)
-        {
-
-        }
-        return (List<T>)objRef;
+        return deSerialise(response, type);
     }
 
     public <T> T getObjectUsingGetMethod (String resource, Class<T> type, Map<String,?> params)
@@ -81,9 +71,11 @@ public class RestService
         return obj1;
     }
 
-    public <T> T getCollectionUsingGetMethod (String resource, Class<T> type)
+    public <T> List<T> getCollectionUsingGetMethod (String resource, Class<T> type, Map<String,?> params)
     {
-         return null;
+        String obj1 = rstTmpl.getForObject(baseURL+resource, String.class, params);
+        return deSerialise(obj1, type);
+
     }
 
     private void resetConverters ()
@@ -121,5 +113,21 @@ public class RestService
         }
 
         return resp;
+    }
+
+    private <T> List<T> deSerialise (String response, Class<T> type)
+    {
+        ObjectMapper obj = new ObjectMapper();
+        Object objRef = null;
+        try
+        {
+            objRef = obj.readValue(response, obj.getTypeFactory().constructCollectionType(List.class, type));
+        }
+        catch(Exception err)
+        {
+            objRef = null;
+        }
+
+        return (List<T>)objRef;
     }
 }
