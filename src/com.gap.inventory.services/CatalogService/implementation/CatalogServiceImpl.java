@@ -23,7 +23,15 @@ public class CatalogServiceImpl implements ICatalogService {
         endPoint = new RestService(baseURL);
     }
 	@Override
-	public List<CatalogCC> getCCInfo(List<Map<String,String>> input) {
+	public CatalogCC getCCInfo(Map<String,String> input) {
+		
+		String resource = ApplicationContextUtil.getProperty ("ccSearch");
+		CatalogCC response=endPoint.getObjectUsingPostMethod(resource, input, CatalogCC.class);
+		return response;
+	}
+	
+	@Override
+	public List<CatalogCC> getCCInfoCollection(List<Map<String,String>> input) {
 		
 		String resource = ApplicationContextUtil.getProperty ("ccSearch");
 		List<CatalogCC> response=endPoint.getCollectionUsingPostMethod(resource, input, CatalogCC.class);

@@ -10,12 +10,12 @@ public class ForecastWeek
     private String week;
     private List<Location> locations;
 
-    public String etweek ()
+    public String getweek ()
     {
         return week;
     }
 
-    private List<Location> getlocations ()
+    public List<Location> getlocations ()
     {
         return locations;
     }

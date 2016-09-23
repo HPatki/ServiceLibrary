@@ -6,5 +6,6 @@ import com.gap.inventory.services.CatalogService.domain.CatalogCC;
 
 public interface ICatalogService {
 
-	public List<CatalogCC> getCCInfo(List<Map<String,String>> input);
+	public CatalogCC getCCInfo(Map<String,String> input);
+	public List<CatalogCC> getCCInfoCollection(List<Map<String,String>> input);
 }

@@ -18,6 +18,26 @@ public class DemandForecast
         return customerChoice;
     }
 
+    public String getCustomerChoice() {
+		return customerChoice;
+	}
+
+	public long getBrandId() {
+		return brandId;
+	}
+
+	public long getMarketId() {
+		return marketId;
+	}
+
+	public long getChannelId() {
+		return channelId;
+	}
+
+	public List<ForecastWeek> getWeeks() {
+		return weeks;
+	}
+
     public void setcustomerChoice (String pln_prd_nbr)
     {
         this.customerChoice = pln_prd_nbr;
