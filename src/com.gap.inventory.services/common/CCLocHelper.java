@@ -13,8 +13,6 @@ import com.gap.inventory.services.DF.domain.DemandForecast;
 import com.gap.inventory.services.DF.domain.ForecastWeek;
 import com.gap.inventory.services.DF.domain.Location;
 import com.gap.inventory.services.DF.intrface.IDemandForecast;
-import com.gap.nltx.EOLandPrepackPush.common.ApplicationContextUtil;
-import com.gap.nltx.EOLandPrepackPush.domain.ProdLocWkFcst;
 
 public class CCLocHelper {
 	Map<String,String> strDC;
